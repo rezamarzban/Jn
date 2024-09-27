@@ -37,7 +37,7 @@ The default definition of the Bessel function of the first kind of order **$n$**
 
 These definitions collectively capture the behavior and properties of Bessel functions in various contexts, including series expansions, integral forms, and differential equations.
 
-Bessel functions appear in many areas of physics and engineering due to their role in solving differential equations with cylindrical or spherical symmetry. Here is a list of some of the main applications of Bessel functions in various problems:
+[Bessel functions](https://mathworld.wolfram.com/topics/BesselFunctions.html) appear in many areas of physics and engineering due to their role in solving differential equations with cylindrical or spherical symmetry. Here is a list of some of the main applications of Bessel functions in various problems:
 
 ### 1. **Electromagnetic Waveguides and Cavities**:
    - **Cylindrical Waveguides**: Bessel functions describe the radial variation of electromagnetic fields in circular waveguides (TE, TM modes).
