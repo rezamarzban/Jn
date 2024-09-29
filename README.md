@@ -1,4 +1,4 @@
-# Jn
+# Jn 
 J(n), Bessel functions of the first kind for orders 0, 1, 2, and 3 of cavity resonators.
 
 **Note:** The variables are not **Global**.
@@ -8,14 +8,14 @@ The Bessel series can be used to represent a function as a series of Bessel func
 **$f(x) = \sum_{n=0}^{\infty} a_n J_n\left(\frac{n\pi x}{a}\right)$**
 
 where:
-- **$J_n(z)$** is the Bessel function of the first kind of order **$n$**. In this context, **$z$** is expressed as **$z = \frac{n\pi x}{a}$**.
+- **$J_n(z)$** is the [Bessel function of the first kind](https://mathworld.wolfram.com/BesselFunctionoftheFirstKind.html) of order **$n$**. In this context, **$z$** is expressed as **$z = \frac{n\pi x}{a}$**.
 - The coefficients **$a_n$** can be calculated using the formula:
 
 **$a_n = \frac{2}{a} \int_0^a f(x) J_n\left(\frac{n\pi x}{a}\right) \, dx$**
 
 This series is particularly useful in solving problems with cylindrical symmetry, such as heat conduction in cylindrical objects or vibrations of circular membranes.
 
-The default definition of the Bessel function of the first kind of order **$n$**, **$J_n(z)$**, can be expressed in several ways. Here are the most common forms:
+The default definition of the [Bessel function of the first kind](https://mathworld.wolfram.com/BesselFunctionoftheFirstKind.html) of order **$n$**, **$J_n(z)$**, can be expressed in several ways. Here are the most common forms:
 
 1. **Series Representation**:
 
@@ -98,7 +98,7 @@ These definitions collectively capture the behavior and properties of Bessel fun
 ### 15. **Electrochemical Cells**:
    - **Battery Design**: In the design of cylindrical batteries, Bessel functions model the distribution of electric potential and current in the cell structure.
 
-Bessel functions are invaluable in problems with circular or cylindrical symmetry, providing solutions to differential equations that arise in a wide range of fields, including electromagnetism, acoustics, fluid dynamics, and quantum mechanics.
+[Bessel functions](https://mathworld.wolfram.com/topics/BesselFunctions.html) are invaluable in problems with circular or cylindrical symmetry, providing solutions to differential equations that arise in a wide range of fields, including electromagnetism, acoustics, fluid dynamics, and quantum mechanics.
 
 ## Cavity Resonators
 
@@ -167,7 +167,7 @@ Where:
 - **$c$** is the speed of light in vacuum (**$3 \times 10^8 \, \text{m/s}$**).
 - **$a$** is the radius of the cylindrical cavity.
 - **$h$** is the height of the cylindrical cavity.
-- **$x_{mn}$** is the **$n$**-th root of the Bessel function **$J_m(x)$**. For example, the first root of **$J_m(x)$** corresponds to the radial mode number **$n$**.
+- **$x_{mn}$** is the **$n$**-th [root](https://mathworld.wolfram.com/BesselFunctionZeros.html) of the Bessel function **$J_m(x)$**. For example, the first root of **$J_m(x)$** corresponds to the radial mode number **$n$**.
 
 ### TE Modes
 
@@ -224,10 +224,10 @@ The solution to this equation is given by Bessel functions:
 
 **$R(r) = J_m(k_r r)$**, 
 
-where **$J_m$** is the Bessel function of the first kind, and **$k_r$** is the radial wavenumber.
+where **$J_m$** is the [Bessel function of the first kind](https://mathworld.wolfram.com/BesselFunctionoftheFirstKind.html), and **$k_r$** is the radial wavenumber.
 
 #### Step 4: Bessel Series Formulas
-The Bessel function of the first kind **$J_m(x)$** can be expressed as a series:
+[Bessel function of the first kind](https://mathworld.wolfram.com/BesselFunctionoftheFirstKind.html) **$J_m(x)$** can be expressed as a series:
 
 **$J_m(x) = \sum_{i=0}^{\infty} \frac{(-1)^i}{i! \Gamma(i + m + 1)} \left( \frac{x}{2} \right)^{2i+m}$**
 
@@ -275,4 +275,120 @@ where **$c$** is the speed of light.
 
   **$f_{mnp} = \frac{c}{2\pi} \sqrt{\left( \frac{x_{mn}}{a} \right)^2 + \left( \frac{p\pi}{h} \right)^2}$**
 
-Where **$x_{mn}$** is the **$n$**-th root of the Bessel function **$J_m(x)$**. and **$x'_{mn}$** is the **$n$**-th root of the prime version of Bessel function **$J'_m(x)$** = **$\frac{J_{m-1}(x) - J_{m+1}(x)}{2}$**.
+Where **$x_{mn}$** is the **$n$**-th [root](https://mathworld.wolfram.com/BesselFunctionZeros.html) of the Bessel function **$J_m(x)$**. and **$x'_{mn}$** is the **$n$**-th [root](https://mathworld.wolfram.com/BesselFunctionZeros.html) of the prime version of Bessel function **$J'_m(x)$** = **$\frac{J_{m-1}(x) - J_{m+1}(x)}{2}$**.
+
+### MATLAB 
+In MATLAB, the Bessel function of the first kind can be computed using the [`besselj`](https://www.mathworks.com/help/matlab/ref/besselj.html) function. Here's the general syntax and an example of how to use it:
+
+#### Syntax
+```matlab
+Y = besselj(nu, Z)
+```
+- `nu` is the order of the Bessel function (can be a scalar or a vector).
+- `Z` is the input value or array at which to evaluate the Bessel function.
+
+#### Example
+Here’s an example of how to plot the Bessel function of the first kind for different orders:
+
+```matlab
+% Define the range of values for Z
+Z = linspace(0, 20, 100);  % Z values from 0 to 20
+
+% Define orders of the Bessel function
+orders = [0, 1, 2, 3];
+
+% Create a figure
+figure;
+hold on;
+
+% Plot Bessel functions for each order
+for nu = orders
+    Y = besselj(nu, Z);
+    plot(Z, Y, 'DisplayName', ['J_' num2str(nu)]);
+end
+
+% Add labels and legend
+xlabel('Z');
+ylabel('Bessel Function of the First Kind');
+title('Bessel Functions of the First Kind J_n(Z)');
+legend show;
+grid on;
+hold off;
+```
+
+#### Explanation
+![Jn](Jn.png)
+- `linspace(0, 20, 100)` generates 100 points between 0 and 20.
+- The loop iterates over the specified orders (`0`, `1`, `2`, `3`) and calculates the Bessel function values for those orders.
+- The `plot` function visualizes the results, with a legend indicating the order of the Bessel functions.
+
+You can modify the range of `Z` and the orders as needed for your specific application.
+
+#### Functions Derivation 
+MATLAB does not have built-in functions for the prime version of the Bessel function of the first kind (denoted as **$\( J_n'(z) \)$**) or for computing the zeros of Bessel functions directly. Functions derivation by user is not recommend because user-defined functions for manual derivation often are incomplete . Anyway, While MATLAB provides the [`besselj`](https://www.mathworks.com/help/matlab/ref/besselj.html) function to calculate the Bessel function values, users need to manually derive the derivatives or use numerical methods to find the zeros, often leveraging root-finding techniques like `fzero`:
+
+```
+% Define the order of the Bessel function
+n = 0;  % Change this to the desired order
+
+% Number of zeros to find
+num_zeros = 5;
+
+% Preallocate an array for zeros
+bessel_zeros = zeros(1, num_zeros);
+
+% Initial guesses for the zeros (can be adjusted)
+initial_guesses = (1:num_zeros) * pi;  % Initial guesses for the first few zeros
+
+% Find zeros using fzero
+for k = 1:num_zeros
+    bessel_zeros(k) = fzero(@(z) besselj(n, z), initial_guesses(k));
+end
+
+% Display the results
+disp('Zeros of Bessel function of the first kind:');
+disp(bessel_zeros);
+```
+
+### Python 
+In Python, the `scipy.special` module provides several functions to work with Bessel functions and their properties. Here’s a detailed explanation of some key functions for handling Bessel functions of the first kind and their derivatives:
+
+- **`scipy.special.jv(nu, z)`**:  
+  This function calculates the Bessel function of the first kind, denoted as **$J_{\nu}(z)$**, where **$\nu$** is the order and **$z$** is the argument. Bessel functions of the first kind are solutions to Bessel's differential equation that are finite at the origin (for non-negative integer orders). You can pass any real or complex value for **$\nu$** (the order) and **$z$** (the argument).
+
+  **Example**:  
+  ```python
+  from scipy.special import jv
+  result = jv(2, 3.0)  # Calculates J_2(3.0)
+  ```
+
+- **`scipy.special.jvp(nu, z)`**:  
+  This function returns the derivative of the Bessel function of the first kind with respect to **$z$**, denoted as **$J'_{\nu}(z)$**. This is useful when you need to compute the slope or rate of change of the Bessel function at a particular point.
+
+  **Example**:  
+  ```python
+  from scipy.special import jvp
+  result = jvp(2, 3.0)  # Calculates J'_2(3.0)
+  ```
+
+- **`scipy.special.jn_zeros(nu, n)`**:  
+  This function returns the first **$n$** zeros of the Bessel function of the first kind of integer order **$\nu$**. Zeros are the points where the Bessel function evaluates to zero, which are important in many applications such as solving boundary value problems in cylindrical coordinates.
+
+  **Example**:  
+  ```python
+  from scipy.special import jn_zeros
+  zeros = jn_zeros(2, 5)  # Finds the first 5 zeros of J_2
+  ```
+
+- **`scipy.special.jnp_zeros(nu, n)`**:  
+  This function returns the first **$n$** zeros of the derivative of the Bessel function of the first kind, **$J'_{\nu}(z)$**, when **$\nu$** is an integer. These zeros are useful in problems that involve the roots of the derivative of the Bessel function, such as finding modes in waveguides.
+
+  **Example**:  
+  ```python
+  from scipy.special import jnp_zeros
+  prime_zeros = jnp_zeros(2, 5)  # Finds the first 5 zeros of J'_2
+  ```
+
+These functions are helpful when solving physical problems involving cylindrical or spherical symmetry, like vibrations of a circular membrane, or when analyzing wave propagation in cylindrical coordinates.
+
+In this repository, the Python code is used to calculate the resonance frequency of cavities.
